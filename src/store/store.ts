@@ -1,11 +1,12 @@
 import { State, Mutation, Action } from "vuex-simple";
-import { container, cid } from "inversify-props";
+import { container, cid, Inject } from "inversify-props";
 import { ITest } from "@/services/ITest";
 export class Store {
+  @Inject()
   private testService!: ITest;
 
   constructor() {
-    this.testService = container.get<ITest>("ITest");
+    // this.testService = container.get<ITest>("ITest");
   }
 
   @State()
